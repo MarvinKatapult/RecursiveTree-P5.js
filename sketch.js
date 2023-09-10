@@ -1,4 +1,5 @@
-var slider;
+var angleSlider;
+var lengthSlider;
 var a;
 var lengthReduction = 0.75;
 var startLength = 100;
@@ -9,7 +10,9 @@ function setup()
 {
 	createCanvas(1000, 700);
 
-	slider = createSlider(0, PI, PI / 4, 0.01);
+	angleSlider = createSlider(0, PI, PI / 4, 0.01);
+	lengthSlider = createSlider(0.2, 0.77, lengthReduction, 0.01);
+
 	button = createButton('Rainbow - Switch');
 	button.position(50, height - 50);
 	button.mousePressed(onRainbowPress);
@@ -22,7 +25,8 @@ function draw()
 	translate(width/2, height - 50);
 	makeBranch(startLength);
 	
-	a = slider.value();
+	lengthReduction = lengthSlider.value();
+	a = angleSlider.value();
 }
 
 function makeBranch(len) {
