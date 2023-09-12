@@ -65,6 +65,6 @@ function makeBranch(len) {
 
 function onRainbowPress() {
 
-	rainbow ? rainbow = false : rainbow = true;
+	rainbow === true ? rainbow = false : rainbow = true;
 
 }
