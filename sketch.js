@@ -2,7 +2,7 @@ var angleSlider;
 var lengthSlider;
 var a;
 var lengthReduction = 0.75;
-var startLength = 100;
+var startLength = 150;
 var button;
 var rainbow = false;
 
@@ -29,7 +29,7 @@ function draw()
 	a = angleSlider.value();
 }
 
-function makeBranch(len, i) {
+function makeBranch(len) {
 	if (len < 3) {
 		return;
 	}
