@@ -5,6 +5,7 @@ var lengthReduction = 0.75;
 var startLength = 150;
 var button;
 var rainbow = false;
+var angleIncrement = 0;
 
 function setup() 
 {
@@ -17,22 +18,34 @@ function setup()
 	rainbowButton.position(50, height - 50);
 	rainbowButton.mousePressed(onRainbowPress);
 
+	frameRate(60);
+
 }
 
 function draw()
 {
 	background(33);
+	
 	translate(width/2, height - 50);
+	
 	makeBranch(startLength);
 	
 	lengthReduction = lengthSlider.value();
-	a = angleSlider.value();
+	
+	if (angleIncrement == 0) {
+		a = angleSlider.value();		
+	}
+	else {
+		a += angleIncrement;
+	}
 }
 
 function makeBranch(len) {
+
 	if (len < 3) {
 		return;
 	}
+
 	line(0, 0, 0, -len);
 	translate(0, -len);
 
@@ -70,4 +83,15 @@ function onRainbowPress() {
 
 	rainbow === true ? rainbow = false : rainbow = true;
 
+}
+
+function keyPressed() {
+	if (key == 'a') {
+		if (angleIncrement == 0) {
+			angleIncrement = 0.01;
+		}
+		else {
+			angleIncrement = 0;
+		}
+	}
 }
