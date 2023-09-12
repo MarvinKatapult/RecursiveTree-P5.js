@@ -13,9 +13,9 @@ function setup()
 	angleSlider = createSlider(0, PI, PI / 4, 0.01);
 	lengthSlider = createSlider(0.2, 0.77, lengthReduction, 0.01);
 
-	button = createButton('Rainbow - Switch');
-	button.position(50, height - 50);
-	button.mousePressed(onRainbowPress);
+	rainbowButton = createButton('Rainbow - Switch');
+	rainbowButton.position(50, height - 50);
+	rainbowButton.mousePressed(onRainbowPress);
 
 }
 
@@ -29,7 +29,7 @@ function draw()
 	a = angleSlider.value();
 }
 
-function makeBranch(len) {
+function makeBranch(len, i) {
 	if (len < 3) {
 		return;
 	}
@@ -60,8 +60,11 @@ function makeBranch(len) {
 		rotate(-a);
 		makeBranch(len * lengthReduction);
 	pop();
-		
+	
+	
+	
 }
+
 
 function onRainbowPress() {
 
