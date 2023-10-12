@@ -7,8 +7,7 @@ var button;
 var rainbow = false;
 var angleIncrement = 0;
 
-function setup() 
-{
+function setup() {
 	createCanvas(1000, 700);
 
 	angleSlider = createSlider(0, PI, PI / 4, 0.01);
@@ -22,19 +21,18 @@ function setup()
 
 }
 
-function draw()
-{
+function draw() {
+
 	background(33);
-	
 	translate(width/2, height - 50);
-	
+
 	makeBranch(startLength);
 	
 	lengthReduction = lengthSlider.value();
 	
 	if (angleIncrement == 0) {
 		a = angleSlider.value();		
-	}
+	} 
 	else {
 		a += angleIncrement;
 	}
@@ -74,15 +72,11 @@ function makeBranch(len) {
 		makeBranch(len * lengthReduction);
 	pop();
 	
-	
-	
 }
 
-
 function onRainbowPress() {
-
 	rainbow === true ? rainbow = false : rainbow = true;
-
+	
 }
 
 function keyPressed() {
